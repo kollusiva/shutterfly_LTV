@@ -110,7 +110,8 @@ select
 a.customer_id
 ,b.total_sales
 ,round(a.total_weeks, 4) total_tenure_weeks
-,round((b.total_sales / a.total_weeks),4) as ltv
+--52(a) * t
+,round(((52 * (b.total_sales / a.total_weeks) ) * a.total_weeks), 4)  as  ltv
 from my_temp_table a
 left join
 (
